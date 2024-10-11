@@ -22,11 +22,18 @@ const Navbar = () => {
                     <i className={`fas fa-${isMenuOpen ? "times" : "bars"}`}></i>
                 </button>
                 <ul className={`navbar-menu ${isMenuOpen ? "show" : ""}`}>
-                    {["Home", "About", "Services", "Contact"].map((item) => (
-                        <li className="navbar-item" key={item}>
-                            <Link className="navbar-link" to={`/${item.toLowerCase()}`}>{item}</Link>
-                        </li>
-                    ))}
+                    <li className="navbar-item">
+                        <Link className="navbar-link" to="/">Home</Link>
+                    </li>
+                    <li className="navbar-item">
+                        <Link className="navbar-link" to="/What-We-Do">What We Do</Link>
+                    </li>
+                    <li className="navbar-item">
+                        <Link className="navbar-link" to="/How-We-Do-It">How We Do It</Link>
+                    </li>
+                    <li className="navbar-item">
+                        <Link className="navbar-link" to="/Contact-Us">Contact Us</Link>
+                    </li>
                 </ul>
             </div>
         </nav>

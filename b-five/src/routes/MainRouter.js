@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from '../components/Home';
-import Industry from '../components/Industry';
-import AboutUs from '../components/AboutUs';
+import WhatWeDo from '../components/WhatWeDo';
+import HowWeDoIt from '../components/HowWeDoIt';
+import ContactUs from '../components/ContactUs';
 import Navbar from '../components/Navbar';
 
 const MainRouter = () => {
@@ -11,8 +12,9 @@ const MainRouter = () => {
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/industry" element={<Industry />} />
-                <Route path="/about-us" element={<AboutUs />} />
+                <Route path="/What-We-Do" element={<WhatWeDo />} />
+                <Route path="/How-We-Do-It" element={<HowWeDoIt />} />
+                <Route path="/Contact-Us" element={<ContactUs />} />
             </Routes>
         </Router>
     );
