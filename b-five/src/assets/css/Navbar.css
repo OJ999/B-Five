@@ -1,232 +1,130 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
-body {
-    font-family: 'Roboto', sans-serif;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-i {
-    margin-right: 10px;
-}
-
-.navbar-logo-img {
-    height: 50px;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-}
-
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    height: 100%;
-}
-
-/*---------- Bootstrap Navbar CSS ------------*/
-.navbar-logo {
-    color: #E2AD68;
-    width: fit-content;
-}
-
-.navbar-mainbg {
-    background-color: #002341;
-    padding: 0;
-}
-
-#navbarSupportedContent {
-    overflow: hidden;
-    position: relative;
-    justify-content: center;
-}
-
-#navbarSupportedContent ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-#navbarSupportedContent li {
-    float: left;
-}
-
-#navbarSupportedContent ul li a {
-    color: #E2AD68;
-    text-decoration: none;
-    font-size: 13px;
-    display: block;
-    padding: 20px 20px;
-    transition-duration: 0.6s;
-    position: relative;
-}
-
-/* Active link styles */
-#navbarSupportedContent>ul>li.active>a {
-    color: #002341;
-    background-color: transparent;
-    transition: all 0.7s;
-}
-
-/* Horizontal selector animation */
-.hori-selector {
-    display: inline-block;
-    position: absolute;
-    height: 100%;
+/* Navbar Styles */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari support */
+    backdrop-filter: blur(10px);
+    /* Standard backdrop blur */
+    padding: 0.5rem 1rem;
+    position: fixed;
+    width: 100%;
     top: 0;
-    left: 0;
-    transition-duration: 0.6s;
-    background-color: #E2AD68;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    margin-top: 10px;
-}
-
-.hori-selector .right,
-.hori-selector .left {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    background-color: #E2AD68;
-    bottom: 10px;
-}
-
-.hori-selector .right {
-    right: -25px;
-}
-
-.hori-selector .left {
-    left: -25px;
-}
-
-.hori-selector .right:before,
-.hori-selector .left:before {
-    content: '';
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #002341;
-}
-
-.hori-selector .right:before {
-    bottom: 0;
-    right: -25px;
-}
-
-.hori-selector .left:before {
-    bottom: 0;
-    left: -25px;
-}
-
-/* Base styles for navbar toggler */
-.navbar-toggler {
-    border: none;
-    color: #E2AD68;
-    background-color: transparent;
-    outline: none;
+    z-index: 1000;
     transition: background-color 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-toggler:hover {
-    background-color: #002341;
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Base styles for navbar toggler */
-.navbar-toggler {
-    border: none;
-    color: #E2AD68;
-    background-color: transparent;
-    outline: none;
-    transition: background-color 0.3s ease;
+.navbar-logo {
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.navbar-toggler:hover {
-    background-color: #002341;
+.navbar-logo:hover {
+    transform: scale(1.1);
 }
 
-/* Responsive styles for larger screens */
-@media (min-width: 992px) {
-    .navbar-expand-custom {
+/* Show menu by default on larger screens */
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    /* Always show menu items above 1025px */
+    gap: 2rem;
+}
+
+/* Hide menu by default on small screens */
+@media (max-width: 1025px) {
+    .navbar-menu {
+        display: none;
+        /* Hide menu */
+    }
+
+    /* Show menu when the state is toggled */
+    .navbar-menu.show {
         display: flex;
-        justify-content: space-between;
-    }
-
-    .navbar-expand-custom .navbar-nav {
-        flex-direction: row;
-    }
-
-    .navbar-expand-custom .navbar-toggler {
-        display: none;
-        /* Hide toggler on larger screens */
-    }
-
-    .navbar-expand-custom .navbar-collapse {
-        display: flex !important;
-        /* Ensure collapse displays flexibly */
-    }
-}
-
-/* Responsive styles for smaller screens */
-@media (max-width: 992px) {
-    #navbarSupportedContent ul li {
-        float: none;
+        /* Show menu when toggled */
+        flex-direction: column;
         /* Stack items vertically */
-    }
-
-    #navbarSupportedContent ul li a {
-        padding: 12px 20px;
-        /* Consistent padding for links */
-        text-align: center;
-        /* Center-align text */
-    }
-
-    .navbar-toggler {
-        display: block;
-        /* Show toggler on smaller screens */
         position: absolute;
-        right: 10px;
-        top: 15px;
-    }
-
-    .navbar-collapse {
-        display: none;
-        /* Hide collapse by default */
-    }
-
-    .navbar-collapse.show {
-        display: flex !important;
-        /* Show collapse when active */
-    }
-
-    /* Active state styles */
-    #navbarSupportedContent>ul>li.active>a {
-        position: relative;
-        color: #002341;
-        transition: all 0.7s;
-        /* Smooth transition for active links */
-    }
-
-    /* Horizontal selector styles */
-    .hori-selector {
-        display: inline-block;
-        position: absolute;
-        height: 3px;
-        bottom: 0;
+        /* Position the menu */
+        top: 60px;
+        /* Position below navbar */
         left: 0;
         right: 0;
-        background-color: #E2AD68;
-        transition: all 0.6s ease;
-        /* Smooth transition for selector */
+        background-color: rgba(255, 255, 255, 0.1);
+        -webkit-backdrop-filter: blur(10px);
+        /* Safari support */
+        backdrop-filter: blur(10px);
+        /* Standard backdrop blur */
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        /* Rounded corners */
+        gap: 0.5rem;
+        /* Spacing between items */
+    }
+}
+
+/* Navbar Item */
+.navbar-item {
+    text-transform: uppercase;
+}
+
+.navbar-link {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.navbar-link:hover {
+    color: #f0f0f0;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Subtle hover background */
+}
+
+/* Navbar Links Active State */
+.navbar-link.active {
+    color: #00bcd4;
+    /* Active state color */
+}
+
+/* Trigger Button Styles */
+.navbar-toggler {
+    display: none;
+    /* Hidden by default */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1025px) {
+    .navbar-toggler {
+        display: block;
+        /* Show trigger button on smaller screens */
     }
 
-    .hori-selector .left,
-    .hori-selector .right {
-        display: none;
-        /* Hide left/right indicators */
+    /* Navbar Link Adjustments for Mobile */
+    .navbar-link {
+        font-size: 1.2rem;
+        /* Slightly larger font for better readability */
+        padding: 0.75rem 1rem;
+        /* Increased padding for touch targets */
     }
 }
