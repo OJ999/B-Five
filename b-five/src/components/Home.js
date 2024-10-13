@@ -1,23 +1,22 @@
 import React from 'react';
-import wallpaper from '../assets/img/Wallpaper-Test_page.jpg';
+import "../assets/css/Home.css";
 
 const Home = () => {
-    const homeStyle = {
-        height: '100vh',
-        backgroundImage: `url(${wallpaper})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        color: 'white',
-    };
-
     return (
-        <div style={homeStyle}>
-            <h1>Welcome to Home</h1>
+        <><div className="home">
+            <div className="content">
+                <h1 className="main-heading">Welcome to B-Five</h1>
+                <h2 className="sub-heading">Consultancy Firm</h2>
+                <hr className="divider" />
+                <p className="description">Providing expert solutions tailored to your needs.</p>
+            </div>
         </div>
+
+            <div className="section-1">
+                <div className="container">
+                    <h1>Hello</h1>
+                </div>
+            </div></>
     );
 };
 

@@ -1,0 +1,50 @@
+body {
+    font-family: 'Merriweather', serif;
+}
+
+
+.home {
+    height: 100vh;
+    background-image: url('../img/Home-Background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #002341;
+    padding: 20px;
+    text-align: left;
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0;
+}
+
+.main-heading {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.sub-heading {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.divider {
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #002341;
+}
+
+.description {
+    font-size: 1rem;
+    margin: 10px 0;
+}

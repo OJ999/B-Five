@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../assets/css/Navbar.css";
-import logo from "../assets/img/Logo.jpg";
+import logo from "../assets/img/Logo.png";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // Toggle the mobile menu
     const toggleMenu = () => {
         setIsMenuOpen(prev => !prev);
     };
@@ -14,25 +13,29 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="navbar-container">
-                <Link className="navbar-brand" to="/">
+                <NavLink className="navbar-brand" to="/">
                     <img src={logo} alt="Logo" className="navbar-logo" />
-                </Link>
-                {/* Trigger Button for Mobile View */}
-                <button className="navbar-toggler" onClick={toggleMenu} aria-label="Toggle navigation">
+                </NavLink>
+                <button
+                    className="navbar-toggler"
+                    onClick={toggleMenu}
+                    aria-label="Toggle navigation"
+                    aria-expanded={isMenuOpen}
+                >
                     <i className={`fas fa-${isMenuOpen ? "times" : "bars"}`}></i>
                 </button>
                 <ul className={`navbar-menu ${isMenuOpen ? "show" : ""}`}>
                     <li className="navbar-item">
-                        <Link className="navbar-link" to="/">Home</Link>
+                        <NavLink className="navbar-link" exact to="/" onClick={() => setIsMenuOpen(false)} activeClassName="active">Home</NavLink>
                     </li>
                     <li className="navbar-item">
-                        <Link className="navbar-link" to="/What-We-Do">What We Do</Link>
+                        <NavLink className="navbar-link" to="/What-We-Do" onClick={() => setIsMenuOpen(false)} activeClassName="active">What We Do</NavLink>
                     </li>
                     <li className="navbar-item">
-                        <Link className="navbar-link" to="/How-We-Do-It">How We Do It</Link>
+                        <NavLink className="navbar-link" to="/How-We-Do-It" onClick={() => setIsMenuOpen(false)} activeClassName="active">How We Do It</NavLink>
                     </li>
                     <li className="navbar-item">
-                        <Link className="navbar-link" to="/Contact-Us">Contact Us</Link>
+                        <NavLink className="navbar-link" to="/Contact-Us" onClick={() => setIsMenuOpen(false)} activeClassName="active">Contact Us</NavLink>
                     </li>
                 </ul>
             </div>
