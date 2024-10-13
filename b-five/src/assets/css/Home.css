@@ -48,3 +48,86 @@ body {
     font-size: 1rem;
     margin: 10px 0;
 }
+
+.moreinfo {
+    background: #002341;
+    background: linear-gradient(0deg, #002341 0%, #002341 100%);
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+}
+
+.moreinfo span {
+    color: white;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.moreinfo:before,
+.moreinfo:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    background: rgba(2, 126, 251, 1);
+    transition: all 0.3s ease;
+}
+
+.moreinfo:before {
+    height: 0%;
+    width: 2px;
+}
+
+.moreinfo:after {
+    width: 0%;
+    height: 2px;
+}
+
+.moreinfo:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+.moreinfo:hover:before {
+    height: 100%;
+}
+
+.moreinfo:hover:after {
+    width: 100%;
+}
+
+.moreinfo span:hover {
+    color: rgba(2, 126, 251, 1);
+}
+
+.moreinfo span:before,
+.moreinfo span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background: rgba(2, 126, 251, 1);
+    transition: all 0.3s ease;
+}
+
+.moreinfo span:before {
+    width: 2px;
+    height: 0%;
+}
+
+.moreinfo span:after {
+    width: 0%;
+    height: 2px;
+}
+
+.moreinfo span:hover:before {
+    height: 100%;
+}
+
+.moreinfo span:hover:after {
+    width: 100%;
+}
