@@ -5,6 +5,8 @@ import WhatWeDo from '../components/WhatWeDo';
 import HowWeDoIt from '../components/HowWeDoIt';
 import ContactUs from '../components/ContactUs';
 import Navbar from '../components/Navbar';
+import Preloader from '../components/Preloader';
+
 
 const MainRouter = () => {
     return (
@@ -15,6 +17,7 @@ const MainRouter = () => {
                 <Route path="/What-We-Do" element={<WhatWeDo />} />
                 <Route path="/How-We-Do-It" element={<HowWeDoIt />} />
                 <Route path="/Contact-Us" element={<ContactUs />} />
+                <Route path="/Preloader" element={<Preloader />} />
             </Routes>
         </Router>
     );

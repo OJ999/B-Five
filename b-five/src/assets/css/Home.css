@@ -131,3 +131,162 @@ body {
 .moreinfo span:hover:after {
     width: 100%;
 }
+
+/*====================================================================*/
+
+:root {
+    --color-1: #002341;
+    --color-2: #E2AD68;
+    --color-3: #002341;
+    --line-contrast: 500%;
+    --photo-brightness: 90%;
+    --photo-contrast: 150%;
+    --photo-blur: 3px;
+    --blend-mode: screen;
+    --point-size: 1px;
+    --point-color: #002341;
+    --point-spacing: 8px;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: var(--color-1);
+}
+
+::-webkit-scrollbar-button {
+    background-color: var(--color-1);
+}
+
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: var(--color-2);
+}
+
+*,
+*:after,
+*::before {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-image: url("data:image/svg+xml,<svg>...</svg>");
+    user-select: none;
+    font-family: 'Switzer', sans-serif;
+}
+
+.container {
+    padding: 3rem 0;
+    margin: 0 auto;
+    width: 80vw;
+}
+
+.gallery-wrap {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70vh;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    background: #002341;
+}
+
+.item {
+    flex: 1;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: none;
+    overflow: hidden;
+    mix-blend-mode: var(--blend-mode);
+    filter: grayscale(1) saturate(0) brightness(var(--photo-brightness)) contrast(var(--photo-contrast));
+    transition: flex 0.4s cubic-bezier(.32, .79, .38, .99), filter 0.5s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+}
+
+.item:hover {
+    flex: 7;
+    filter: grayscale(0) saturate(1.3) blur(0px);
+}
+
+.item:hover .caption {
+    opacity: 1;
+}
+
+.item:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: radial-gradient(circle closest-side, var(--point-color) var(--point-size), transparent var(--point-size));
+    background-size: var(--point-spacing) var(--point-spacing);
+    filter: contrast(var(--line-contrast));
+    transition: opacity .2s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+    opacity: .3;
+    pointer-events: none;
+}
+
+.item:hover:before {
+    opacity: 0;
+}
+
+.caption {
+    position: fixed;
+    left: .5rem;
+    right: .5rem;
+    bottom: 0;
+    margin: 1rem;
+    padding: 1rem;
+    color: #eee;
+    border: solid 1px rgba(255, 255, 255, 0.25);
+    border-radius: 2rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    transition: opacity 0.2s ease, backdrop-filter 3s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+    opacity: 0;
+}
+
+.caption:hover {
+    backdrop-filter: blur(0px);
+}
+
+.item-1 {
+    border-radius: 2rem 0 0 2rem;
+    background-image: url('https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg');
+}
+
+.item-2 {
+    background-image: url('https://images.pexels.com/photos/4780712/pexels-photo-4780712.jpeg');
+}
+
+.item-3 {
+    background-image: url('https://images.pexels.com/photos/1647970/pexels-photo-1647970.jpeg');
+}
+
+.item-4 {
+    background-image: url('https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg');
+}
+
+.item-5 {
+    border-radius: 0 2rem 2rem 0;
+    background-image: url('https://images.pexels.com/photos/1670845/pexels-photo-1670845.jpeg');
+}
+
+.btn-social-cp {
+    --dim: 30px;
+    position: fixed;
+    bottom: var(--dim);
+    right: var(--dim);
+    height: var(--dim);
+    width: var(--dim);
+}
+
+.btn-social-cp svg path {
+    transition: all 2s ease;
+    fill: #ffdd40;
+}
+
+.btn-social-cp:hover svg path {
+    fill: #fff;
+}

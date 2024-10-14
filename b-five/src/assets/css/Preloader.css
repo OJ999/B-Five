@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 99999;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#loader .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+#loader .logo.fly-out {
+    transform: translate(-100vw, -100vh);
+    opacity: 0;
+}
+
+#loader .logo .spinner {
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+#loader .logo .spinner span {
+    height: 80px;
+    width: 80px;
+    display: inline-block;
+    margin: 0 auto;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-right-color: #002341;
+    animation: spin1 2s linear infinite;
+}
+
+@keyframes spin1 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#loader .logo .name {
+    margin: 20px 20px 20px 120px;
+    position: relative;
+    width: 265px;
+    height: 40px;
+    display: block;
+}
+
+#loader .logo .name .compName {
+    font-size: 40px;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#loader .logo .name .compName span {
+    display: inline-block;
+}
+
+#loader .logo .name .compName.bg {
+    color: #002341;
+}
+
+#loader .logo .name .compName.rt span {
+    color: #E2AD68;
+    animation: rtName 4s linear infinite;
+    transform: rotateY(-90deg);
+    animation-delay: 0.2s;
+}
+
+@keyframes rtName {
+    0% {
+        opacity: 0;
+        transform: rotateY(-90deg);
+    }
+
+    25% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+
+    75% {
+        opacity: 0;
+        transform: rotateY(-90deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotateY(-90deg);
+    }
+}
+
+#loader .logo .loading {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 5px;
+    font-family: sans-serif;
+}
+
+#loader .strips {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: block;
+}
+
+#loader .strips span {
+    display: block;
+    height: 100vh;
+    background: #fff;
+    width: 25%;
+    float: left;
+}
+
+#loader .strips.hideStrip span {
+    animation: slideStrip 0.5s linear forwards;
+    animation-delay: 0.8s;
+}
